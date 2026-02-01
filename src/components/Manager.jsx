@@ -5,6 +5,7 @@ const Manager = () => {
 
   // const ref = useRef()
   // const passwordRef = useRef()
+  const host = import.meta.env.VITE_BACKEND_URL || "http://localhost:3001";
   const [form, setForm] = useState({ site: "", username: "", password: "" })
   const [passwordArray, setPasswordArray] = useState([])
   const [showPassword, setShowPassword] = useState(false);
@@ -13,7 +14,7 @@ const Manager = () => {
   const getPasswords = async () => {
     try {
       // console.log("Fetching from server...");
-      let req = await fetch("http://localhost:3001")
+      let req = await fetch(`${host}/`)
 
       if (!req.ok) {
         console.error("Server error:", req.status);
@@ -48,7 +49,7 @@ const Manager = () => {
       await fetch("http://localhost:3001", { method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: form.id }) })
 
       setPasswordArray([...passwordArray, { ...form, id: uuidv4() }]);
-      await fetch("http://localhost:3001", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...form, id: uuidv4() }) })
+      await fetch(`${host}/`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...form, id: uuidv4() }) })
       // localStorage.setItem("passwords", JSON.stringify([...passwordArray, { ...form, id: uuidv4() }]));
       setForm({ site: "", username: "", password: "" });
       alert('Password Saved Successfully!')
@@ -67,7 +68,7 @@ const Manager = () => {
     let c = confirm("Do you really want to delete this password ?")
     if (c) {
       setPasswordArray(passwordArray.filter(item => item.id !== id))
-      let res = await fetch("http://localhost:3001", { method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id }) })
+      let res = await fetch(`${host}/`, { method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id }) })
       // localStorage.setItem("passwords", JSON.stringify(passwordArray.filter(item => item.id !== id)))
       console.log(res);
     }
@@ -219,3 +220,4 @@ const Manager = () => {
 }
 
 export default Manager
+
