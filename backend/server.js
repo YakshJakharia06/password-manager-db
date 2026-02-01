@@ -19,7 +19,7 @@ const dbName = 'password';
 const app = express();
 dns.setServers(['8.8.8.8', '8.8.4.4']); 
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.use(bodyParser.json());
 app.use(cors());
