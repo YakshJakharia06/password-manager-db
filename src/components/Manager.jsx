@@ -46,13 +46,24 @@ const Manager = () => {
     if (form.site.length > 5 && form.username.length > 3 && form.password.length > 5) {
 
       // if any such id exist delete it
-      await fetch("http://localhost:3001", { method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: form.id }) })
+      await fetch(`${host}/`, { 
+        method: "DELETE", 
+        headers: { "Content-Type": "application/json" }, 
+        body: JSON.stringify({ id: form.id }) 
+      })
 
-      setPasswordArray([...passwordArray, { ...form, id: uuidv4() }]);
-      await fetch(`${host}/`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...form, id: uuidv4() }) })
-      // localStorage.setItem("passwords", JSON.stringify([...passwordArray, { ...form, id: uuidv4() }]));
+      const newPassword = { ...form, id: uuidv4() };
+      setPasswordArray([...passwordArray, newPassword]);
+      
+      await fetch(`${host}/`, { 
+        method: "POST", 
+        headers: { "Content-Type": "application/json" }, 
+        body: JSON.stringify(newPassword) 
+      })
+      
       setForm({ site: "", username: "", password: "" });
       alert('Password Saved Successfully!')
+    }
 
 
     } else {
@@ -220,4 +231,5 @@ const Manager = () => {
 }
 
 export default Manager
+
 
