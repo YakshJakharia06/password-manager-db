@@ -97,7 +97,17 @@ const Manager = () => {
     navigator.clipboard.writeText(Text)
   }
 
+const formatURL = (url) => {
+    if (!url) return "#";
+    
+    let cleanUrl = url.trim();
 
+    if (!/^https?:\/\//i.test(cleanUrl)) {
+        return `https://${cleanUrl}`;
+    }
+    
+    return cleanUrl;
+};
 
 
   return (
@@ -171,8 +181,8 @@ const Manager = () => {
                       <td className=' text-center py-2 px-2 border-2 border-white'>
                         <div className='not-md:text-start md:flex items-center justify-center'>
 
-                          <a href={item.site} target='_blank'>{item.site}</a>
-
+                          <a href={formatURL(item.site)} target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-800">{item.site}</a>
+                          
                           <div className='cursor-pointer' onClick={() => { copyText(item.site) }}>
                             <img className='md:px-2 px-0.5 w-7 md:w-10' src="/copy.png" alt="" />
                           </div>
@@ -229,6 +239,7 @@ const Manager = () => {
 }
 
 export default Manager
+
 
 
 
