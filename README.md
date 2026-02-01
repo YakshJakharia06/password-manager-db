@@ -1,16 +1,38 @@
-# React + Vite
+# Password Manager Database 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A secure and efficient database-backed password management system. This project allows users to securely store, retrieve, and manage encrypted credentials using a centralized database.
 
-Currently, two official plugins are available:
+## Features
+- **Secure Storage**: Passwords are encrypted before being stored in the database.
+- **CRUD Operations**: Create, Read, Update, and Delete password entries easily.
+- **Master Password**: Access to the database is protected by a strong master authentication layer.
+- **Search Functionality**: Quickly find credentials by service name or username.
+- **Data Integrity**: Uses relational/non-relational schemas to ensure data consistency.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- **Language**: [e.g., Python / Node.js / Java]
+- **Database**: [e.g., MySQL / MongoDB / PostgreSQL]
+- **Encryption**: [e.g., AES-256 / bcrypt]
+- **Environment Management**: `.env` for sensitive configuration.
 
-## React Compiler
+## Prerequisites
+Before you begin, ensure you have the following installed:
+- [Database Engine, e.g., MySQL 8.0]
+- [Runtime, e.g., Node.js v16+]
+- Git
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Installation & Setup
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/YakshJakharia06/password-manager-db.git](https://github.com/YakshJakharia06/password-manager-db.git)
+   ```
+   ```
+   cd password-manager-db
+   ```
+   ```
+   npm install
+   ```
+   ```
+   npm run dev
+   ```
