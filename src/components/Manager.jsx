@@ -63,8 +63,6 @@ const Manager = () => {
       
       setForm({ site: "", username: "", password: "" });
       alert('Password Saved Successfully!')
-    }
-
 
     } else {
       alert('Password not saved!\nUsername length should be greater than 3\nWebsite length should be greater than 5\nPassword length should be greater than 5')
@@ -231,5 +229,6 @@ const Manager = () => {
 }
 
 export default Manager
+
 
 
